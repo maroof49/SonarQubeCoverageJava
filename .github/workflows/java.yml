@@ -1,0 +1,18 @@
+name: Java Testing
+on: push
+jobs:
+  BuildJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repo
+        uses: actions/checkout@v4
+      - name: install the jdk
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+      - name: runs the maven code
+        run: mvn package
+
+  
